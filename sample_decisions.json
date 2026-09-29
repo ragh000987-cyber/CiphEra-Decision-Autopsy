@@ -1,5 +1,222 @@
 [
-  {"id":"D001","decision":"Increase digital advertising budget by 30% for a product launch","reason":"A previous campaign produced strong returns during a similar launch period.","expected":"30% increase in sales with positive ROAS.","actual":"Sales increased only 8% and ROAS fell.","lesson":"Historical campaign performance was not comparable because the audience and offer had changed."},
-  {"id":"D002","decision":"Launch a new feature before the quarterly review","reason":"The feature was nearly complete and the team expected early user feedback to help.","expected":"Higher engagement without major support issues.","actual":"Engagement rose 4%, but support tickets doubled.","lesson":"Launching before support documentation and onboarding were ready created avoidable operational cost."},
-  {"id":"D003","decision":"Increase inventory before a festival season","reason":"Demand had increased during the previous festival season.","expected":"90% of additional inventory sold within the season.","actual":"Only 58% sold; remaining stock required discounts.","lesson":"Past seasonal demand was not enough; current price sensitivity and competitor supply also mattered."}
+  {
+    "id": "DEC-001",
+    "decision": "Increase digital advertising budget by 30%",
+    "context": "Customer acquisition slowed for two consecutive months.",
+    "reason": "A previous advertising campaign generated strong customer growth.",
+    "assumption": "The previous campaign's performance would repeat under current market conditions.",
+    "expected_outcome": "20% increase in new customers within one month.",
+    "actual_outcome": "7% increase in new customers within one month.",
+    "result": "Underperformed",
+    "lesson": "Previous campaign performance should not be assumed to repeat without checking whether market conditions and audience behavior are comparable."
+  },
+  {
+    "id": "DEC-002",
+    "decision": "Launch the new mobile feature in a limited beta first",
+    "context": "The feature had passed internal testing but had not been used by real customers.",
+    "reason": "The team wanted real-world feedback before a full rollout.",
+    "assumption": "A small beta group would expose major usability problems before launch.",
+    "expected_outcome": "Identify and fix at least 80% of major usability issues before full release.",
+    "actual_outcome": "Beta users identified 12 major issues, and 10 were fixed before launch.",
+    "result": "Successful",
+    "lesson": "Limited beta releases can reveal important usability problems that internal testing misses."
+  },
+  {
+    "id": "DEC-003",
+    "decision": "Reduce the subscription price by 15%",
+    "context": "Website traffic was high but trial-to-paid conversion was low.",
+    "reason": "The team believed price was the main barrier to conversion.",
+    "assumption": "Lowering price would significantly increase paid conversions.",
+    "expected_outcome": "25% increase in paid subscriptions.",
+    "actual_outcome": "9% increase in paid subscriptions while average revenue per customer fell.",
+    "result": "Underperformed",
+    "lesson": "Low conversion was not primarily a pricing problem; future experiments should test onboarding and perceived value before cutting price."
+  },
+  {
+    "id": "DEC-004",
+    "decision": "Hire two additional customer-support agents",
+    "context": "Support ticket volume had increased by 35%.",
+    "reason": "The team expected the higher volume to continue.",
+    "assumption": "Additional staffing would reduce response time without creating excess capacity.",
+    "expected_outcome": "Reduce average first-response time from 10 hours to under 4 hours.",
+    "actual_outcome": "First-response time fell to 3.5 hours and customer satisfaction improved.",
+    "result": "Successful",
+    "lesson": "When ticket growth is sustained, targeted staffing can improve response time and customer satisfaction."
+  },
+  {
+    "id": "DEC-005",
+    "decision": "Move the application database to a larger cloud instance",
+    "context": "Database CPU utilization frequently exceeded 85% during peak traffic.",
+    "reason": "The team expected scaling vertically to remove the bottleneck quickly.",
+    "assumption": "Database compute capacity was the primary cause of slow queries.",
+    "expected_outcome": "30% reduction in peak query latency.",
+    "actual_outcome": "Peak latency improved by only 8%; several slow queries were caused by missing indexes.",
+    "result": "Underperformed",
+    "lesson": "Infrastructure scaling should be paired with query-level diagnosis before assuming hardware is the main bottleneck."
+  },
+  {
+    "id": "DEC-006",
+    "decision": "Send a personalized onboarding email sequence to new users",
+    "context": "Many users signed up but did not complete their first key action.",
+    "reason": "Users appeared to need guidance during the first week.",
+    "assumption": "Relevant onboarding reminders would increase activation.",
+    "expected_outcome": "15% increase in activation rate.",
+    "actual_outcome": "Activation increased by 19%.",
+    "result": "Successful",
+    "lesson": "Timely, behavior-based onboarding communication can improve activation when users are unclear about the next step."
+  },
+  {
+    "id": "DEC-007",
+    "decision": "Launch the product in a second geographic market",
+    "context": "The first market showed strong retention and growing demand.",
+    "reason": "The team wanted to replicate the product's success in a similar market.",
+    "assumption": "Customer needs and acquisition channels would be similar in the new market.",
+    "expected_outcome": "Reach 1,000 active customers in three months.",
+    "actual_outcome": "Reached 420 active customers in three months.",
+    "result": "Underperformed",
+    "lesson": "Strong performance in one market does not guarantee similar acquisition results elsewhere; local channels and customer behavior need validation."
+  },
+  {
+    "id": "DEC-008",
+    "decision": "Add a referral program with rewards for existing customers",
+    "context": "Organic signups were growing but paid acquisition costs were increasing.",
+    "reason": "The team expected existing customers to generate lower-cost referrals.",
+    "assumption": "Customers would actively recommend the product when offered a modest reward.",
+    "expected_outcome": "10% of new customers would come from referrals.",
+    "actual_outcome": "14% of new customers came from referrals.",
+    "result": "Successful",
+    "lesson": "Referral incentives can become an efficient acquisition channel when existing customers have enough product satisfaction to recommend the product."
+  },
+  {
+    "id": "DEC-009",
+    "decision": "Remove a low-usage feature from the product",
+    "context": "The feature was used by less than 3% of active users and required maintenance.",
+    "reason": "The team wanted to reduce complexity and engineering effort.",
+    "assumption": "Removing the feature would have little impact on retention.",
+    "expected_outcome": "No measurable decline in retention and lower maintenance effort.",
+    "actual_outcome": "Retention remained stable and maintenance work decreased by approximately 12 engineering hours per month.",
+    "result": "Successful",
+    "lesson": "Low-usage features can sometimes be removed safely when their user impact and dependencies are understood."
+  },
+  {
+    "id": "DEC-010",
+    "decision": "Offer a 7-day free trial instead of a 14-day trial",
+    "context": "Many trial users were inactive during the second week.",
+    "reason": "The team believed a shorter trial would create urgency.",
+    "assumption": "Users would make purchase decisions faster without reducing product evaluation.",
+    "expected_outcome": "Improve trial-to-paid conversion by 10%.",
+    "actual_outcome": "Conversion decreased by 4% because some customers needed more time to evaluate the product.",
+    "result": "Underperformed",
+    "lesson": "Shortening a trial can hurt conversion when customers need more time to experience product value."
+  },
+  {
+    "id": "DEC-011",
+    "decision": "Introduce automated invoice reminders",
+    "context": "A significant number of invoices were paid late.",
+    "reason": "Late payments appeared to be caused partly by missed reminders.",
+    "assumption": "Automated reminders would improve payment timing without requiring manual follow-up.",
+    "expected_outcome": "Reduce overdue invoices by 20%.",
+    "actual_outcome": "Overdue invoices decreased by 31%.",
+    "result": "Successful",
+    "lesson": "Automating predictable administrative reminders can improve payment behavior with relatively low operational effort."
+  },
+  {
+    "id": "DEC-012",
+    "decision": "Increase inventory purchase volume by 40% before a seasonal campaign",
+    "context": "The previous year's seasonal campaign sold out early.",
+    "reason": "The team wanted to avoid stockouts during the upcoming campaign.",
+    "assumption": "Demand would grow at a similar rate to the previous year.",
+    "expected_outcome": "Sell 90% of the increased inventory during the campaign.",
+    "actual_outcome": "Only 62% of the inventory was sold during the campaign.",
+    "result": "Underperformed",
+    "lesson": "Past seasonal demand should be adjusted for current pricing, competition, and campaign reach before increasing inventory substantially."
+  },
+  {
+    "id": "DEC-013",
+    "decision": "Add a self-service help center for common support questions",
+    "context": "Support agents spent substantial time answering repetitive questions.",
+    "reason": "Common questions could potentially be answered through searchable documentation.",
+    "assumption": "Customers would use self-service articles for simple issues.",
+    "expected_outcome": "Reduce repetitive support tickets by 15%.",
+    "actual_outcome": "Repetitive tickets decreased by 22%.",
+    "result": "Successful",
+    "lesson": "Well-organized self-service documentation can reduce repetitive support demand and free agents for complex issues."
+  },
+  {
+    "id": "DEC-014",
+    "decision": "Run a large influencer campaign for the product launch",
+    "context": "The product had a visually appealing consumer-focused offering.",
+    "reason": "The team expected influencer reach to translate into high awareness and sales.",
+    "assumption": "High reach would translate into strong purchase intent.",
+    "expected_outcome": "Generate 5,000 qualified visits and 500 purchases.",
+    "actual_outcome": "Generated 8,000 visits but only 210 purchases.",
+    "result": "Underperformed",
+    "lesson": "Reach and traffic do not necessarily translate into purchases; future campaigns should evaluate audience-product fit and conversion quality."
+  },
+  {
+    "id": "DEC-015",
+    "decision": "Introduce a weekly engineering planning meeting",
+    "context": "Development work was frequently interrupted by shifting priorities.",
+    "reason": "The team wanted a predictable planning and prioritization rhythm.",
+    "assumption": "A short weekly planning session would reduce mid-week priority changes.",
+    "expected_outcome": "Reduce unplanned priority changes by 25%.",
+    "actual_outcome": "Unplanned priority changes decreased by 38%.",
+    "result": "Successful",
+    "lesson": "A lightweight recurring planning process can reduce priority churn when responsibilities and decision ownership are clear."
+  },
+  {
+    "id": "DEC-016",
+    "decision": "Replace manual data exports with an automated reporting pipeline",
+    "context": "Analysts spent several hours each week preparing recurring reports.",
+    "reason": "The reports followed a stable structure and appeared suitable for automation.",
+    "assumption": "The reporting process could be standardized without reducing data quality.",
+    "expected_outcome": "Save 15 analyst hours per week.",
+    "actual_outcome": "Saved 12 hours per week and reduced reporting errors.",
+    "result": "Successful",
+    "lesson": "Stable, repetitive reporting workflows are strong candidates for automation when data validation is included."
+  },
+  {
+    "id": "DEC-017",
+    "decision": "Launch a premium plan with advanced features",
+    "context": "Some larger customers requested additional controls and reporting.",
+    "reason": "The team expected enterprise-oriented customers to pay more for advanced capabilities.",
+    "assumption": "Existing customers would see enough value in the advanced features to upgrade.",
+    "expected_outcome": "10% of existing customers would upgrade within two months.",
+    "actual_outcome": "3% upgraded.",
+    "result": "Underperformed",
+    "lesson": "Feature availability alone did not create enough upgrade value; future premium offerings should validate willingness to pay before development."
+  },
+  {
+    "id": "DEC-018",
+    "decision": "Add a second payment provider",
+    "context": "Some customers reported payment failures with the existing provider.",
+    "reason": "The team wanted a fallback option and broader payment coverage.",
+    "assumption": "An alternative provider would recover a meaningful portion of failed transactions.",
+    "expected_outcome": "Recover 15% of previously failed payments.",
+    "actual_outcome": "Recovered 18% of previously failed payments.",
+    "result": "Successful",
+    "lesson": "Providing a payment fallback can recover revenue when payment failures are caused by provider-specific limitations."
+  },
+  {
+    "id": "DEC-019",
+    "decision": "Delay a major product release by two weeks to fix reported usability issues",
+    "context": "Beta testers reported several usability problems shortly before launch.",
+    "reason": "The team believed releasing with known high-impact usability issues would create avoidable support problems.",
+    "assumption": "The short delay would improve launch quality more than it would hurt momentum.",
+    "expected_outcome": "Reduce launch-week support issues by 20%.",
+    "actual_outcome": "Launch-week usability-related support tickets were 34% lower than the previous comparable release.",
+    "result": "Successful",
+    "lesson": "A short, targeted release delay can be valuable when it addresses verified high-impact usability problems."
+  },
+  {
+    "id": "DEC-020",
+    "decision": "Expand the sales team before validating the new sales territory",
+    "context": "The existing sales region was performing well and leadership wanted faster growth.",
+    "reason": "The team expected additional sales capacity to create proportional revenue growth.",
+    "assumption": "The new territory had enough qualified demand to support additional sales capacity.",
+    "expected_outcome": "Generate 25% more qualified opportunities within a quarter.",
+    "actual_outcome": "Qualified opportunities increased by only 6% while sales costs increased significantly.",
+    "result": "Underperformed",
+    "lesson": "Adding sales capacity before validating territory demand can increase costs without producing proportional pipeline growth."
+  }
 ]
