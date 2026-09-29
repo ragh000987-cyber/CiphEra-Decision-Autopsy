@@ -1,0 +1,78 @@
+[
+  {
+    "id": "dec-001",
+    "title": "Remove automated database backups",
+    "context": "Cost optimization sprint — infra spend was 40% over budget. Team proposed cutting nightly backup jobs to save cloud storage costs.",
+    "reasoning": "Backups were deemed redundant because we had point-in-time recovery enabled on the primary DB. The team estimated $2,400/month savings with minimal risk given recent stability.",
+    "assumptions": [
+      "Point-in-time recovery covers all failure scenarios",
+      "No schema migrations planned for 90 days",
+      "Storage costs outweigh recovery-time risk"
+    ],
+    "outcome": "Six weeks later, a bad migration corrupted production data. Recovery took 18 hours. Customer-facing SLA breach and emergency postmortem.",
+    "outcome_status": "failure",
+    "timestamp": "2025-11-12T14:30:00Z",
+    "tags": ["infra", "cost-cutting", "database"],
+    "evidence": [
+      "Postmortem #PM-2025-47: RTO exceeded by 14 hours",
+      "Finance report: saved $2,400/mo, incident cost ~$85,000"
+    ]
+  },
+  {
+    "id": "dec-002",
+    "title": "Use vector-only RAG for agent memory",
+    "context": "Building v1 of an autonomous support agent. Needed fast retrieval over 50k support tickets.",
+    "reasoning": "Pure vector search is simpler to ship, well-understood by the team, and benchmarks showed acceptable recall@5 on ticket similarity.",
+    "assumptions": [
+      "Similarity equals relevance for support queries",
+      "Outcome quality does not need to influence retrieval",
+      "Static embeddings are sufficient for evolving policies"
+    ],
+    "outcome": "Agent frequently retrieved outdated resolutions with high similarity scores. Escalation rate increased 22% over two sprints.",
+    "outcome_status": "failure",
+    "timestamp": "2025-12-03T09:15:00Z",
+    "tags": ["agents", "memory", "rag"],
+    "evidence": [
+      "Audit log: 34% of retrieved chunks flagged outdated by support leads",
+      "Escalation dashboard: +22% week-over-week"
+    ]
+  },
+  {
+    "id": "dec-003",
+    "title": "Adopt Hindsight for decision memory",
+    "context": "After two failed memory approaches, team evaluated outcome-aware memory systems for the support agent.",
+    "reasoning": "Hindsight retain/recall/reflect model weights memories by outcomes, supports premise drift detection, and provides an auditable decision ledger.",
+    "assumptions": [
+      "Outcome signals can be captured at decision time",
+      "Engineering team will annotate decisions consistently",
+      "Hindsight server latency fits our p95 budget"
+    ],
+    "outcome": "Escalation rate dropped 18% within one sprint. Audit view surfaced three stale-retrieval bugs that were fixed via outcome_weight_floor tuning.",
+    "outcome_status": "success",
+    "timestamp": "2026-01-20T11:00:00Z",
+    "tags": ["agents", "hindsight", "memory"],
+    "evidence": [
+      "Escalation dashboard: -18% after Hindsight integration",
+      "Audit log: outcome_weight_floor tuned from 0.1 to 0.35"
+    ]
+  },
+  {
+    "id": "dec-004",
+    "title": "Defer agent observability to Phase 2",
+    "context": "MVP deadline in 3 weeks. OpenTelemetry integration estimated at 5 engineer-days.",
+    "reasoning": "Ship core agent loop first; add tracing once usage patterns are understood. Logging to stdout deemed sufficient for launch.",
+    "assumptions": [
+      "Stdout logs are enough to debug early failures",
+      "No production traffic in first 30 days",
+      "Phase 2 starts immediately after MVP"
+    ],
+    "outcome": "First production incident took 6 hours to diagnose with log grep alone. Phase 2 observability work was pulled forward under fire.",
+    "outcome_status": "partial",
+    "timestamp": "2026-02-05T16:45:00Z",
+    "tags": ["observability", "mvp", "agents"],
+    "evidence": [
+      "Incident #INC-2026-12: MTTR 6h vs 45m target",
+      "Sprint retro: observability bumped to P0"
+    ]
+  }
+]
