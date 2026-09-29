@@ -1,3 +1,7 @@
-streamlit>=1.40
-hindsight-client
-python-dotenv>=1.0
+fastapi
+uvicorn[standard]
+streamlit
+python-dotenv
+pydantic
+requests
+openai
